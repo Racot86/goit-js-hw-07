@@ -25,12 +25,18 @@ const images = [
     }
 ];
 
-images.forEach(image => {
+const addImagesToGallery = (imageArray) => {
     let ul = document.querySelector('.gallery');
-    let li = document.createElement('li');
-    let img = document.createElement('img');
-    img.src = image.url;
-    img.alt = image.alt;
-    li.appendChild(img);
-    ul.appendChild(li);
-})
+    let imgFragments = new DocumentFragment();
+    imageArray.forEach(image => {
+        let li = document.createElement('li');
+        let img = document.createElement('img');
+        img.src = image.url;
+        img.alt = image.alt;
+        li.appendChild(img);
+        imgFragments.appendChild(li);
+    })
+    ul.appendChild(imgFragments);
+}
+
+addImagesToGallery(images);

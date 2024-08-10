@@ -13,14 +13,16 @@ function createBoxes(amount) {
     if (amount > 0 && amount <= 100) {
         destroyBoxes();
         let boxDimensions = 30;
+        let boxesFragments = new DocumentFragment();
         for (let i = 0; i < amount; i++) {
             let box = document.createElement('div');
             box.style.width = boxDimensions + 'px';
             box.style.height = boxDimensions + 'px';
             box.style.background = getRandomHexColor();
-            boxesArea.appendChild(box);
+            boxesFragments.appendChild(box);
             boxDimensions += 10;
         }
+        boxesArea.appendChild(boxesFragments);
         input.value = '';
     }
 }
